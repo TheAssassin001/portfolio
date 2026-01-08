@@ -48,7 +48,7 @@ export default function Contact() {
           className="text-center"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Let's <span className="text-gradient">Connect</span>
+            Let&apos;s <span className="text-gradient">Connect</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mb-8"></div>
 
