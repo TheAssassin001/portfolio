@@ -8,8 +8,8 @@ const projects = [
   {
     title: "Let's Learn Chinese",
     description: 'A professional Chinese language tutoring website featuring responsive design, interactive contact form, and service information.',
-    tech: ['HTML', 'CSS', 'JavaScript', 'Netlify'],
-    liveUrl: 'https://letslearnchinese.netlify.app/',
+    tech: ['HTML', 'CSS', 'JavaScript', 'Vercel'],
+    liveUrl: 'https://language-tutor-liart.vercel.app/',
     githubUrl: 'https://github.com/TheAssassin001/Language_tutor',
     status: 'Live',
     year: '2024',
