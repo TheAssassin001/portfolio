@@ -29,7 +29,7 @@ export default function About() {
               className="space-y-6 text-gray-600 leading-relaxed"
             >
               <p className="text-lg">
-                I'm a passionate <strong className="text-gray-900">web developer</strong> with a strong interest in building clean, 
+                I&apos;m a passionate <strong className="text-gray-900">web developer</strong> with a strong interest in building clean, 
                 responsive, and user-friendly websites. I focus on creating modern designs that work smoothly 
                 across all devices and provide a great user experience.
               </p>
@@ -42,7 +42,7 @@ export default function About() {
               </p>
 
               <p className="text-lg">
-                I'm always learning and improving my skills, exploring better design practices, and staying 
+                I&apos;m always learning and improving my skills, exploring better design practices, and staying 
                 updated with modern web technologies. My goal is to deliver reliable, well-structured websites 
                 that help individuals and businesses build a strong online presence.
               </p>

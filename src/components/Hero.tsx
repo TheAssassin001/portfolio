@@ -67,7 +67,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-5xl md:text-7xl font-bold mb-6"
           >
-            Hi, I'm{' '}
+            Hi, I&apos;m{' '}
             <span className="text-gradient">Aswin K. Jayan</span>
           </motion.h1>
 
