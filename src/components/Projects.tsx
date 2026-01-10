@@ -12,7 +12,7 @@ const projects = [
     liveUrl: 'https://language-tutor-liart.vercel.app/',
     githubUrl: 'https://github.com/TheAssassin001/Language_tutor',
     status: 'Live',
-    year: '2024',
+    year: '2026',
   },
   {
     title: 'Santa Carnival',
@@ -21,7 +21,7 @@ const projects = [
     liveUrl: 'https://santacarnival.in/',
     githubUrl: '',
     status: 'Live',
-    year: '2024',
+    year: '2025',
   },
   // Add more projects here
 ]
