@@ -14,6 +14,15 @@ const projects = [
     status: 'Live',
     year: '2024',
   },
+  {
+    title: 'Santa Carnival',
+    description: 'A modern e-commerce website built with Shopify for the Santa Carnival brand. Features custom theme, product catalog, secure checkout, and responsive design.',
+    tech: ['Shopify', 'Liquid', 'JavaScript', 'CSS'],
+    liveUrl: 'https://santacarnival.in/',
+    githubUrl: '',
+    status: 'Live',
+    year: '2024',
+  },
   // Add more projects here
 ]
 
