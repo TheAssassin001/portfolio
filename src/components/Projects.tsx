@@ -27,7 +27,6 @@ const projects = [
     description: 'A practice and learning platform. Ongoing project focused on building interactive features and modern UI/UX.',
     tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
     liveUrl: 'https://akt-practice.vercel.app/',
-    githubUrl: 'https://github.com/TheAssassin001/AKT-Practice',
     status: 'Ongoing',
     year: '2026',
   },
