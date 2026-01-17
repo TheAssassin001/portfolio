@@ -22,6 +22,15 @@ const projects = [
     status: 'Live',
     year: '2025',
   },
+  {
+    title: 'AKT Practice',
+    description: 'A practice and learning platform. Ongoing project focused on building interactive features and modern UI/UX.',
+    tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS'],
+    liveUrl: '',
+    githubUrl: 'https://github.com/TheAssassin001/AKT-Practice',
+    status: 'Ongoing',
+    year: '2026',
+  },
   // Add more projects here
 ]
 
