@@ -30,6 +30,14 @@ const projects = [
     status: 'Ongoing',
     year: '2026',
   },
+  {
+    title: 'Necro Game',
+    description: 'A browser-based game project deployed on Vercel. Features interactive gameplay and modern web technologies.',
+    tech: ['React', 'TypeScript', 'Vercel'],
+    liveUrl: 'https://necro-game.vercel.app/',
+    status: 'Live',
+    year: '2026',
+  },
   // Add more projects here
 ]
 
