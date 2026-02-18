@@ -60,7 +60,7 @@ export default function Contact() {
             {`$ ping -c 1 remote_host:aswin_k_jayan`}
             <br />
             <span className="text-white/40 block mt-2 text-sm italic">
-              "Ready to synchronize on your next digital project."
+              {"\"Ready to synchronize on your next digital project.\""}
             </span>
           </motion.p>
 
