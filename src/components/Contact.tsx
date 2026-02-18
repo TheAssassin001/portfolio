@@ -47,7 +47,7 @@ export default function Contact() {
           transition={{ duration: 1 }}
           className="text-center font-mono"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#00ff41] text-glow">
+          <h2 className="text-3xl md:text-5xl font-bold mb-8 text-[#00ff41] text-glow">
             {`[ INITIALIZE_CONNECTION ]`}
           </h2>
 
@@ -68,7 +68,7 @@ export default function Contact() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex justify-center gap-8 mb-20"
+            className="flex justify-center gap-4 md:gap-8 mb-20"
           >
             {socials.map((social, index) => (
               <motion.a

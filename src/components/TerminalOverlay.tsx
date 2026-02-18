@@ -79,12 +79,12 @@ const TerminalOverlay = () => {
         <AnimatePresence>
             {isOpen && (
                 <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8 bg-black/90 backdrop-blur-xl"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-xl"
                 >
-                    <div className="w-full max-w-4xl h-[60vh] border border-[#00ff41] bg-black shadow-[0_0_30px_rgba(0,255,65,0.2)] flex flex-col font-mono">
+                    <div className="w-full max-w-4xl h-[80vh] md:h-[60vh] border border-[#00ff41] bg-black shadow-[0_0_30px_rgba(0,255,65,0.2)] flex flex-col font-mono">
                         <div className="flex items-center justify-between px-4 py-2 border-b border-[#00ff41]/30 bg-[#00ff41]/10">
                             <span className="text-[#00ff41] text-xs">TERMINAL_SESSION: active</span>
                             <button onClick={() => setIsOpen(false)} className="text-[#00ff41] hover:text-white">
@@ -92,7 +92,7 @@ const TerminalOverlay = () => {
                             </button>
                         </div>
 
-                        <div className="flex-1 overflow-y-auto p-4 space-y-2 text-[#00ff41] scrollbar-hide">
+                        <div className="flex-1 overflow-y-auto p-4 space-y-2 text-[#00ff41] text-xs md:text-sm scrollbar-hide">
                             {history.map((line, i) => (
                                 <div key={i} className={line.startsWith('>') ? 'text-white' : ''}>
                                     {line}

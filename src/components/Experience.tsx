@@ -52,7 +52,7 @@ export default function Experience() {
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#00ff41] font-mono text-glow">
+          <h2 className="text-3xl md:text-5xl font-bold mb-8 text-[#00ff41] font-mono text-glow">
             {`[ WORK_HISTORY ]`}
           </h2>
 

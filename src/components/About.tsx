@@ -22,7 +22,7 @@ export default function About() {
             DATA_STREAM
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-glow text-[#00ff41] font-mono">
+          <h2 className="text-3xl md:text-5xl font-bold mb-8 text-glow text-[#00ff41] font-mono">
             {`[ ABOUT_ME ]`}
           </h2>
 
@@ -33,7 +33,7 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="space-y-6 text-[#00ff41]/80 leading-relaxed font-mono"
             >
-              <p className="text-lg">
+              <p className="text-base md:text-lg">
                 <span className="text-white opacity-50 block mb-1">INITIALIZING BIO...</span>
                 I am a driven <strong className="text-white">Front-End Developer</strong> who pivoted from <strong className="text-white">Engineering (Robotics)</strong> to follow a passion for software and web systems.
                 Currently, I am pursuing my <strong className="text-white">BCA at DCSMAT Vagamon</strong> while contributing as an <strong className="text-white">Intern at Innovature</strong>.

@@ -10,6 +10,9 @@ const CustomCursor = () => {
     const mouseY = useSpring(0, { stiffness: 500, damping: 28 })
 
     useEffect(() => {
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+        if (isTouchDevice) return
+
         const handleMouseMove = (e: MouseEvent) => {
             mouseX.set(e.clientX)
             mouseY.set(e.clientY)
@@ -28,7 +31,7 @@ const CustomCursor = () => {
 
     return (
         <motion.div
-            className="fixed top-0 left-0 w-4 h-6 bg-[#00ff41] pointer-events-none z-[9999] shadow-[0_0_10px_#00ff41] mix-blend-screen"
+            className="fixed top-0 left-0 w-4 h-6 bg-[#00ff41] pointer-events-none z-[9999] shadow-[0_0_10px_#00ff41] mix-blend-screen hidden md:block"
             style={{
                 x: mouseX,
                 y: mouseY,

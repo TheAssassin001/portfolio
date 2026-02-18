@@ -48,7 +48,7 @@ export default function Hero() {
             <span className="text-white opacity-50">$ </span>
             <span className="text-[#00ff41]">whoami</span>
             <div className="mt-4 mb-8">
-              <div className="relative w-32 h-32 md:w-40 md:h-40 mb-6 border border-[#00ff41] p-1 shadow-[0_0_15px_rgba(0,255,65,0.3)]">
+              <div className="relative w-24 h-24 md:w-40 md:h-40 mb-6 border border-[#00ff41] p-1 shadow-[0_0_15px_rgba(0,255,65,0.3)]">
                 <Image
                   src="/profile.jpg"
                   alt="Aswin K. Jayan"
@@ -57,14 +57,14 @@ export default function Hero() {
                   priority
                 />
               </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-[#00ff41] text-glow glitch" data-text="Aswin K. Jayan">
+              <h1 className="text-3xl md:text-6xl font-bold mb-4 text-[#00ff41] text-glow glitch leading-tight" data-text="Aswin K. Jayan">
                 <Typewriter text="Aswin K. Jayan" delay={500} />
               </h1>
-              <p className="text-xl md:text-2xl text-[#00ff41]/80 mb-6">
+              <p className="text-lg md:text-2xl text-[#00ff41]/80 mb-6 font-mono">
                 <span className="text-white opacity-50">$ </span>
                 <Typewriter text="locate --profession" delay={2000} />
                 <br />
-                <span className="text-white mt-1 block tracking-wider uppercase bg-[#00ff41]/10 px-2 w-fit">
+                <span className="text-white mt-2 block tracking-wider uppercase bg-[#00ff41]/10 px-2 w-fit text-sm md:text-base">
                   [ Front-End Web Developer ]
                 </span>
               </p>
