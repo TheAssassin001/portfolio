@@ -9,42 +9,44 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="about" className="section-padding bg-white">
+    <section id="about" className="section-padding bg-transparent">
       <div className="container-custom" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="border border-[#00ff41]/30 p-8 md:p-12 bg-black/60 backdrop-blur-md relative overflow-hidden"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-            About <span className="text-gradient">Me</span>
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mb-12"></div>
+          {/* Glitchy background text */}
+          <div className="absolute -top-10 -right-10 text-9xl font-bold text-[#00ff41]/5 select-none pointer-events-none">
+            DATA_STREAM
+          </div>
 
-          <div className="max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-glow text-[#00ff41] font-mono">
+            {`[ ABOUT_ME ]`}
+          </h2>
+
+          <div className="max-w-3xl">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6 text-gray-600 leading-relaxed"
+              className="space-y-6 text-[#00ff41]/80 leading-relaxed font-mono"
             >
               <p className="text-lg">
-                I&apos;m a passionate <strong className="text-gray-900">web developer</strong> with a strong interest in building clean, 
-                responsive, and user-friendly websites. I focus on creating modern designs that work smoothly 
-                across all devices and provide a great user experience.
+                <span className="text-white opacity-50 block mb-1">INITIALIZING BIO...</span>
+                I am a driven <strong className="text-white">Front-End Developer</strong> who pivoted from <strong className="text-white">Engineering (Robotics)</strong> to follow a passion for software and web systems.
+                Currently, I am pursuing my <strong className="text-white">BCA at DCSMAT Vagamon</strong> while contributing as an <strong className="text-white">Intern at Innovature</strong>.
+              </p>
+
+              <p className="text-lg border-l-2 border-[#00ff41]/20 pl-4">
+                My objective is to merge my foundations in automation with modern web technologies. I specialize in building
+                <strong className="text-white">responsive interfaces</strong> and <strong className="text-white">high-performance web applications</strong> that thrive in the digital matrix.
               </p>
 
               <p className="text-lg">
-                My work mainly involves developing <strong className="text-gray-900">personal portfolios</strong>, 
-                <strong className="text-gray-900"> landing pages</strong>, and <strong className="text-gray-900">web applications</strong>. 
-                I enjoy turning simple ideas into functional and visually appealing websites while keeping 
-                performance and clarity in mind.
-              </p>
-
-              <p className="text-lg">
-                I&apos;m always learning and improving my skills, exploring better design practices, and staying 
-                updated with modern web technologies. My goal is to deliver reliable, well-structured websites 
-                that help individuals and businesses build a strong online presence.
+                <span className="text-white opacity-50 block mb-1">LEARNING_STATUS: ACTIVE_SYNC</span>
+                Continuously upgrading my stack from <strong className="text-white">Robotic Systems</strong> to <strong className="text-white">Full-Stack Development</strong>. Focus: React, Next.js, and complex algorithmic logic.
               </p>
             </motion.div>
 
@@ -52,16 +54,16 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-8 text-center"
+              className="mt-12"
             >
               <a
                 href="/Aswin K Jayan_CV.pdf"
                 download
-                className="inline-flex items-center px-6 py-3 border-2 border-primary-600 text-primary-600 rounded-lg hover:bg-primary-600 hover:text-white transition-all duration-300"
+                className="inline-flex items-center px-8 py-3 border border-[#00ff41] text-[#00ff41] hover:bg-[#00ff41] hover:text-black transition-all duration-300 group"
               >
-                Download Resume
+                <span className="mr-2">{`>> FETCH_RESUME.pdf`}</span>
                 <svg
-                  className="w-5 h-5 ml-2"
+                  className="w-5 h-5 group-hover:translate-y-1 transition-transform"
                   fill="none"
                   strokeLinecap="round"
                   strokeLinejoin="round"

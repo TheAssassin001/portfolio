@@ -20,32 +20,37 @@ export default function Skills() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="skills" className="section-padding bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="skills" className="section-padding bg-transparent">
       <div className="container-custom" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 1 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-            Tech <span className="text-gradient">Stack</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#00ff41] font-mono text-glow">
+            {`[ TECH_STACK ]`}
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mb-12"></div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl">
             {skills.map((skill, index) => (
               <motion.div
                 key={skill.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.05 }}
-                className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 text-center group"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                whileHover={{ scale: 1.05, borderColor: '#00ff41' }}
+                className="bg-black/40 border border-[#00ff41]/20 p-6 backdrop-blur-sm transition-all duration-300 text-center relative group"
               >
-                <div className="text-4xl mb-3 group-hover:scale-110 transition-transform duration-300">
+                <div className="absolute top-1 left-1 text-[8px] text-[#00ff41]/30 font-mono">
+                  MOD_{index.toString().padStart(2, '0')}
+                </div>
+                <div className="text-4xl mb-3 grayscale brightness-125 group-hover:grayscale-0 transition-all duration-300">
                   {skill.icon}
                 </div>
-                <h3 className="font-semibold text-gray-900">{skill.name}</h3>
+                <h3 className="font-mono text-[#00ff41] tracking-tighter uppercase relative z-10">
+                  {`> ${skill.name}`}
+                </h3>
+                <div className="absolute inset-0 bg-[#00ff41]/5 opacity-0 group-hover:opacity-100 transition-opacity" />
               </motion.div>
             ))}
           </div>

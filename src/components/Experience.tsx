@@ -6,17 +6,38 @@ import { useRef } from 'react'
 
 const experiences = [
   {
-    role: 'Freelance Web Developer',
-    company: 'Self-Employed',
-    duration: '2024 - Present',
+    role: 'Intern',
+    company: 'Innovature',
+    duration: 'Jan 2026 - Present',
     description: [
-      'Developing custom websites for clients including portfolios and landing pages',
-      'Creating responsive and user-friendly web experiences',
-      'Working with modern web technologies and frameworks',
+      'Contributing to front-end development projects within Infopark Phase 2',
+      'Implementing responsive UI components using modern web stacks',
+      'Collaborating in a remote-first professional environment',
     ],
-    skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js'],
+    skills: ['JavaScript', 'React', 'Tailwind CSS', 'Next.js'],
   },
-  // Add more experiences here
+  {
+    role: 'Graduate Student (BCA)',
+    company: 'DCSMAT Institutions',
+    duration: 'Sep 2023 - Present',
+    description: [
+      'Focusing on Computer Programming and Application development',
+      'Advanced study in C, C++, and Python (Programming Languages)',
+      'Developing data-driven applications as part of academic curriculum',
+    ],
+    skills: ['Python', 'C', 'C++', 'Data Structures'],
+  },
+  {
+    role: 'B-Tech Studies (Discontinued)',
+    company: 'Saintgits College of Engineering',
+    duration: '2019 - 2024',
+    description: [
+      'Pursued Undergraduate studies in Robotics and Automation',
+      'Acquired foundational knowledge in embedded systems and engineering logic',
+      'Pivoted to Computer Applications (BCA) to focus on full-stack web development',
+    ],
+    skills: ['Robotics', 'Automation', 'Embedded Systems', 'C++'],
+  },
 ]
 
 export default function Experience() {
@@ -24,42 +45,44 @@ export default function Experience() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="experience" className="section-padding bg-white">
+    <section id="experience" className="section-padding bg-transparent">
       <div className="container-custom" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 1 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">
-            Work <span className="text-gradient">Experience</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#00ff41] font-mono text-glow">
+            {`[ WORK_HISTORY ]`}
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mb-12"></div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl">
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="relative pl-8 pb-12 border-l-2 border-primary-200 last:pb-0"
+                className="relative pl-8 pb-12 border-l border-[#00ff41]/20 last:pb-0"
               >
                 {/* Timeline dot */}
-                <div className="absolute left-0 top-0 w-4 h-4 bg-primary-600 rounded-full transform -translate-x-[9px]"></div>
+                <div className="absolute left-0 top-0 w-3 h-3 bg-[#00ff41] shadow-[0_0_8px_#00ff41] rounded-full transform -translate-x-1/2 mt-2 animate-pulse"></div>
 
-                <div className="bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                    <h3 className="text-xl font-bold text-gray-900">{exp.role}</h3>
-                    <span className="text-sm text-primary-600 font-medium">{exp.duration}</span>
+                <div className="bg-black/40 border border-[#00ff41]/10 p-6 backdrop-blur-sm hover:border-[#00ff41]/40 transition-all duration-300">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                    <h3 className="text-xl font-bold text-[#00ff41] font-mono">{`> ${exp.role}`}</h3>
+                    <span className="text-sm text-[#00ff41]/60 font-mono tracking-tighter bg-[#00ff41]/5 px-2 py-1">
+                      {`[ ${exp.duration} ]`}
+                    </span>
                   </div>
-                  
-                  <p className="text-gray-600 font-medium mb-4">{exp.company}</p>
 
-                  <ul className="space-y-2 mb-4">
+                  <p className="text-white/60 font-mono mb-6 text-sm italic">{`at_location: "${exp.company}"`}</p>
+
+                  <ul className="space-y-3 mb-6 relative">
+                    <div className="absolute left-0 top-0 bottom-0 w-[1px] bg-[#00ff41]/5 translate-x-1" />
                     {exp.description.map((item, i) => (
-                      <li key={i} className="text-gray-600 flex items-start">
-                        <span className="text-primary-600 mr-2">•</span>
+                      <li key={i} className="text-[#00ff41]/80 flex items-start font-mono text-sm group">
+                        <span className="text-[#00ff41]/40 mr-3 group-hover:text-[#00ff41] transition-colors">0x0{i + 1}</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -69,9 +92,9 @@ export default function Experience() {
                     {exp.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium"
+                        className="px-2 py-1 border border-[#00ff41]/20 text-[#00ff41]/70 text-xs font-mono lowercase hover:border-[#00ff41] hover:text-[#00ff41] transition-colors"
                       >
-                        {skill}
+                        {`#${skill}`}
                       </span>
                     ))}
                   </div>

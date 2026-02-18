@@ -1,117 +1,101 @@
 'use client'
 
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
+const Typewriter = ({ text, delay = 0, speed = 50 }: { text: string; delay?: number; speed?: number }) => {
+  const [displayedText, setDisplayedText] = useState('')
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      let i = 0
+      const interval = setInterval(() => {
+        if (i < text.length) {
+          setDisplayedText((prev) => prev + text.charAt(i))
+          i++
+        } else {
+          clearInterval(interval)
+        }
+      }, speed)
+      return () => clearInterval(interval)
+    }, delay)
+    return () => clearTimeout(timeout)
+  }, [text, delay, speed])
+
+  return <span>{displayedText}<span className="animate-pulse">_</span></span>
+}
+
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-primary-50">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-          className="absolute top-20 left-10 w-64 h-64 bg-primary-200/30 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            rotate: [360, 180, 0],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-          className="absolute bottom-20 right-10 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl"
-        />
-      </div>
-
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
       <div className="container-custom px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="text-left font-mono border border-[#00ff41]/20 p-8 md:p-12 relative bg-black/40 backdrop-blur-sm"
         >
-          {/* Profile Picture */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-8 flex justify-center"
-          >
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-600 to-blue-400 rounded-full blur-2xl opacity-30 animate-pulse"></div>
-              <div className="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white shadow-2xl">
+          {/* Terminal header */}
+          <div className="absolute top-0 left-0 right-0 h-6 bg-[#00ff41]/10 flex items-center px-4 space-x-2">
+            <div className="w-2 h-2 rounded-full bg-red-500/50" />
+            <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
+            <div className="w-2 h-2 rounded-full bg-green-500/50" />
+            <span className="text-[10px] text-[#00ff41]/50 ml-2">aswin@portfolio: ~</span>
+          </div>
+
+          <div className="mt-4">
+            <span className="text-white opacity-50">$ </span>
+            <span className="text-[#00ff41]">whoami</span>
+            <div className="mt-4 mb-8">
+              <div className="relative w-32 h-32 md:w-40 md:h-40 mb-6 border border-[#00ff41] p-1 shadow-[0_0_15px_rgba(0,255,65,0.3)]">
                 <Image
                   src="/profile.jpg"
                   alt="Aswin K. Jayan"
                   fill
-                  className="object-cover"
+                  className="object-cover grayscale sepia-[.5] hue-rotate-[90deg] brightness-75 transition-all duration-500 hover:grayscale-0 hover:sepia-0 hover:hue-rotate-0 hover:brightness-100"
                   priority
                 />
               </div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 text-[#00ff41] text-glow glitch" data-text="Aswin K. Jayan">
+                <Typewriter text="Aswin K. Jayan" delay={500} />
+              </h1>
+              <p className="text-xl md:text-2xl text-[#00ff41]/80 mb-6">
+                <span className="text-white opacity-50">$ </span>
+                <Typewriter text="locate --profession" delay={2000} />
+                <br />
+                <span className="text-white mt-1 block tracking-wider uppercase bg-[#00ff41]/10 px-2 w-fit">
+                  [ Front-End Web Developer ]
+                </span>
+              </p>
             </div>
-          </motion.div>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold mb-6"
-          >
-            Hi, I&apos;m{' '}
-            <span className="text-gradient">Aswin K. Jayan</span>
-          </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-600 mb-4"
-          >
-            Front-End Web Developer
-          </motion.p>
+            <div className="mb-12 max-w-2xl">
+              <span className="text-white opacity-50">$ </span>
+              <span className="text-[#00ff41]">cat summary.txt</span>
+              <p className="mt-2 text-[#00ff41]/70 leading-relaxed">
+                <Typewriter
+                  text="Building modern, responsive web experiences with clean code and attention to detail. Initializing deep dive into digital aesthetics..."
+                  delay={3500}
+                  speed={30}
+                />
+              </p>
+            </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg text-gray-500 mb-12 max-w-2xl mx-auto"
-          >
-            Building modern, responsive web experiences with clean code and attention to detail
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <a
-              href="#projects"
-              className="inline-flex items-center px-8 py-4 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 6 }}
             >
-              View Projects
-              <svg
-                className="w-5 h-5 ml-2"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+              <a
+                href="#projects"
+                className="inline-block border border-[#00ff41] px-8 py-3 text-[#00ff41] hover:bg-[#00ff41] hover:text-black transition-all duration-300 relative group overflow-hidden"
               >
-                <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-              </svg>
-            </a>
-          </motion.div>
+                <span className="relative z-10">{`[ ACCESS_PROJECTS ]`}</span>
+                <div className="absolute inset-0 bg-[#00ff41] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              </a>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
 
@@ -119,14 +103,17 @@ export default function Hero() {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-[#00ff41] text-xs font-mono"
       >
-        <div className="w-6 h-10 border-2 border-primary-600 rounded-full flex items-start justify-center p-2">
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1.5 h-1.5 bg-primary-600 rounded-full"
-          />
+        <div className="flex flex-col items-center">
+          <span>SCROLL_TO_DESCEND</span>
+          <div className="w-[1px] h-10 bg-[#00ff41]/30 mt-2 relative overflow-hidden">
+            <motion.div
+              animate={{ y: [0, 40] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-full h-1/3 bg-[#00ff41]"
+            />
+          </div>
         </div>
       </motion.div>
     </section>

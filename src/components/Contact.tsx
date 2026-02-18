@@ -39,33 +39,36 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="section-padding bg-white">
+    <section id="contact" className="section-padding bg-transparent">
       <div className="container-custom" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="text-center font-mono"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Let&apos;s <span className="text-gradient">Connect</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[#00ff41] text-glow">
+            {`[ INITIALIZE_CONNECTION ]`}
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary-600 to-primary-400 mx-auto mb-8"></div>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto"
+            className="text-lg text-[#00ff41]/70 mb-12 max-w-2xl mx-auto"
           >
-            Ready to bring your ideas to life? Feel free to reach out through any of these platforms.
+            {`$ ping -c 1 remote_host:aswin_k_jayan`}
+            <br />
+            <span className="text-white/40 block mt-2 text-sm italic">
+              "Ready to synchronize on your next digital project."
+            </span>
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex justify-center gap-6 mb-16"
+            className="flex justify-center gap-8 mb-20"
           >
             {socials.map((social, index) => (
               <motion.a
@@ -73,11 +76,16 @@ export default function Contact() {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ y: -5, scale: 1.1 }}
-                className="w-14 h-14 bg-primary-600 text-white rounded-full flex items-center justify-center hover:bg-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                whileHover={{ y: -5, scale: 1.1, textShadow: '0 0 8px #00ff41' }}
+                className="group flex flex-col items-center gap-2"
                 title={social.name}
               >
-                {social.icon}
+                <div className="w-16 h-16 border border-[#00ff41]/20 rounded-full flex items-center justify-center text-[#00ff41] group-hover:border-[#00ff41] group-hover:bg-[#00ff41]/10 transition-all duration-300">
+                  {social.icon}
+                </div>
+                <span className="text-[10px] text-[#00ff41]/40 uppercase tracking-tighter group-hover:text-[#00ff41]">
+                  {social.name}
+                </span>
               </motion.a>
             ))}
           </motion.div>
@@ -89,20 +97,21 @@ export default function Contact() {
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.6, delay: 0.6 }}
-        className="border-t border-gray-200 mt-16 pt-8"
+        className="border-t border-[#00ff41]/10 mt-16 pt-12 pb-8 font-mono bg-black/40 backdrop-blur-sm"
       >
         <div className="container-custom text-center">
-          <p className="text-gray-600 mb-4">
-            © 2026 Aswin K. Jayan. All rights reserved.
+          <p className="text-[#00ff41]/40 text-xs mb-6 tracking-widest leading-loose">
+            {`SYSTEM_ESTABLISHED: 2024`}
+            <br />
+            {`LAST_SYNC: ${new Date().getFullYear()}.02.18_08:00_GMT`}
+            <br />
+            {`© 2026 ASWIN_K_JAYAN. NO_RIGHTS_RESERVED._WE_LIVE_IN_A_SIMULATION.`}
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 transition-colors duration-300"
+            className="text-[#00ff41]/60 hover:text-[#00ff41] text-[10px] transition-colors duration-300 uppercase tracking-[0.3em] flex items-center gap-2 mx-auto border border-[#00ff41]/20 px-4 py-2 hover:border-[#00ff41]"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-            </svg>
-            Back to top
+            <span>[ RETURN_TO_SURFACE ]</span>
           </button>
         </div>
       </motion.footer>

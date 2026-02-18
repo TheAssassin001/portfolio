@@ -27,14 +27,13 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/80 backdrop-blur-md shadow-md' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-md border-b border-[#00ff41]/30' : 'bg-transparent'
+        }`}
     >
       <div className="container-custom px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold text-gradient">
-            AK
+          <Link href="/" className="text-2xl font-bold text-glow text-[#00ff41] glitch" data-text="[ Aswin_K_Jayan ]">
+            [ Aswin_K_Jayan ]
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -42,15 +41,15 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-600 hover:text-primary-600 transition-colors duration-200 text-sm font-medium"
+                className="text-[#00ff41]/80 matrix-link text-sm font-medium tracking-widest uppercase"
               >
-                {item.name}
+                {`> ${item.name}`}
               </Link>
             ))}
           </div>
 
           {/* Mobile menu button */}
-          <button className="md:hidden text-gray-600">
+          <button className="md:hidden text-[#00ff41]">
             <svg
               className="w-6 h-6"
               fill="none"
